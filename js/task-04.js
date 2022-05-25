@@ -1,5 +1,6 @@
-// initialising Counter Value
-let counterValue = 0;
+/*
+ * initialising References
+ */
 
 // reference on decrement button
 const btnDecrementRef = document.querySelector('#counter > [data-action="decrement"]');
@@ -9,7 +10,20 @@ const btnIncrementRef = document.querySelector('#counter > [data-action="increme
 
 // reference on counter value
 const valueRef = document.querySelector('#value');
+
+/*
+ * initialising starting values
+ */
+
+// optional - change color of counter
 valueRef.classList.add('zeroNumber');
+
+// initialising Counter Value
+let counterValue = 0;
+
+/*
+ * add listeners to buttons
+ */
 
 // Listener of click on decrement button
 btnDecrementRef.addEventListener('click', () => {
