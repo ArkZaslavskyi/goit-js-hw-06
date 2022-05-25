@@ -20,10 +20,10 @@ const images = [
 // <li class="gallery__item"><img class="gallery__img" src="" alt=""></li>
 
 // make gallery item markup string function
-const makeGalleryItemMarkup = ({ url, alt }) => {
-  return `<li class="gallery__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
-}
-// make all gallery items markup in single string 
+const makeGalleryItemMarkup = ({ url, alt }) =>
+  `<li class="gallery__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
+
+// make all gallery items markup in single string
 const galleryListItemsMarkup = images.map(makeGalleryItemMarkup).join('');
 
 // get reference on gallery
