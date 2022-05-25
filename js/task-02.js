@@ -7,7 +7,8 @@ const ingredients = [
   'Condiments',
 ];
 
-// function for make one ingredient item  
+// function to make single ingredient item
+// pattern: <li class="item">ingredient<li> 
 const makeIngredientItem = (ingredient) => {
   const ingredientItem = document.createElement('li');
   ingredientItem.classList.add('item');
