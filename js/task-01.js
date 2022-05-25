@@ -1,7 +1,7 @@
 // reference on #categories (top level ul)
 const categoriesRef = document.querySelector('#categories');
 
-// numbers of children ()
+// numbers of categories children ()
 console.log(`Number of categories: ${categoriesRef.children.length}`);
 
 // 
