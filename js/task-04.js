@@ -22,7 +22,7 @@ valueRef.classList.add('zeroNumber');
 let counterValue = 0;
 
 /*
- * add listeners to buttons
+ * add listeners on buttons
  */
 
 // Listener of click on decrement button

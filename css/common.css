@@ -23,33 +23,7 @@ button {
   cursor: pointer;
 }
 
-#counter {
-  display: flex;
-  align-items: center;
-}
-
-/* -- styles for counter in task-4 -- */
-
-#value {
-  font-weight: bold;
-  margin: 0 12px;
-}
-
-.negativeNumber {
-  color: red;
-}
-
-.zeroNumber {
-  color: gray;
-}
-.positiveNumber {
-  color: rgb(69, 168, 23);
-}
-
-/* ---- */
-
 /* -- styles for gallery in task-3 -- */
-
 .gallery {
   margin: auto;
   padding: 0;
@@ -69,5 +43,34 @@ button {
   border-radius: 4px;
   box-shadow: 4px 4px 4px -2px rgba(0, 0, 0, 0.2);
 }
+/* ---- */
 
+/* -- styles for counter in task-4 -- */
+#counter {
+  display: flex;
+  align-items: center;
+}
+
+#value {
+  font-weight: bold;
+  margin: 0 12px;
+}
+
+.negativeNumber {
+  color: red;
+}
+
+.zeroNumber {
+  color: gray;
+}
+
+.positiveNumber {
+  color: rgb(69, 168, 23);
+}
+/* ---- */
+
+/* -- styles for outpunt in task-5 -- */
+.anonymous {
+  color: lightgray;
+}
 /* ---- */
