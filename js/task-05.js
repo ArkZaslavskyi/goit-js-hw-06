@@ -17,8 +17,11 @@ if (!textInputRef.textContent) {
  * add listener on input
  */
 
-textInputRef.addEventListener('input', (event) => {
-    if (!event.currentTarget.value) {
+textInputRef.addEventListener('input', (event) => onChangeTextInput(event));
+
+// text input handler
+function onChangeTextInput({ currentTarget: { value }}) {
+    if (!value) {
         textOutputRef.textContent = 'Anonymous';
         textOutputRef.classList.toggle('anonymous');
         return;
@@ -28,5 +31,5 @@ textInputRef.addEventListener('input', (event) => {
         textOutputRef.classList.remove('anonymous');
     };
 
-    textOutputRef.textContent = event.currentTarget.value;
-});
+    textOutputRef.textContent = value;
+}

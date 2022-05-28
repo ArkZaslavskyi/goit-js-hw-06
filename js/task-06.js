@@ -6,16 +6,16 @@
 const textInputRef = document.querySelector('#validation-input');
 
 // listener on blur of #validation-input
-textInputRef.addEventListener('blur', (event) => {
-    if (event.currentTarget.value.length !== Number(textInputRef.dataset.length)) {
+textInputRef.addEventListener('blur', ({ currentTarget: { value: { length } } }) => {
+    if (length !== Number(textInputRef.dataset.length)) {
         if (!textInputRef.classList.contains('invalid')) {
-            textInputRef.classList.remove('valid');
             textInputRef.classList.add('invalid');
-        }
+            textInputRef.classList.remove('valid');
+        };
     } else {
         if (!textInputRef.classList.contains('valid')) {
-            textInputRef.classList.remove('invalid');
             textInputRef.classList.add('valid');
-        }
+            textInputRef.classList.remove('invalid');
+        };
     }
-})
+});

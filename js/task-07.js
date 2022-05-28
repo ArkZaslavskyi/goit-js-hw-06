@@ -13,6 +13,6 @@ rangeInputRef.value = 36;
 textRef.style.fontSize = rangeInputRef.value+"px";
 
 // listener on input range field
-rangeInputRef.addEventListener('input', (event) => {
-    textRef.style.fontSize = event.currentTarget.value+"px";
+rangeInputRef.addEventListener('input', ({ currentTarget: { value } }) => {
+    textRef.style.fontSize = value+"px";
 });

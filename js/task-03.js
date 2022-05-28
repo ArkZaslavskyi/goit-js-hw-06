@@ -23,7 +23,7 @@ const images = [
 const makeGalleryItemMarkup = ({ url, alt }) =>
   `<li class="gallery__item"><img class="gallery__img" src="${url}" alt="${alt}"></li>`;
 
-// make all gallery items markup in single string
+// make all gallery items markup & join them to single html-string
 const galleryListItemsMarkup = images.map(makeGalleryItemMarkup).join('');
 
 // get reference on gallery

@@ -15,11 +15,11 @@ const valueRef = document.querySelector('#value');
  * initialising starting values
  */
 
-// optional - change color of counter
-valueRef.classList.add('zeroNumber');
-
 // initialising Counter Value
 let counterValue = 0;
+
+// optional - change color of counter
+valueRef.classList.add('zeroNumber');
 
 /*
  * add listeners on buttons
