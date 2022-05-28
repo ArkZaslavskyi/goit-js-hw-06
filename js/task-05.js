@@ -17,9 +17,10 @@ if (!textInputRef.textContent) {
  * add listener on input
  */
 
-textInputRef.addEventListener('input', (event) => onChangeTextInput(event));
+textInputRef.addEventListener('input', onChangeTextInput);
 
 // text input handler
+// 1st solution - with change the text style
 function onChangeTextInput({ currentTarget: { value }}) {
     if (!value) {
         textOutputRef.textContent = 'Anonymous';
@@ -33,3 +34,12 @@ function onChangeTextInput({ currentTarget: { value }}) {
 
     textOutputRef.textContent = value;
 }
+
+// 2nd solution - if there is no need to change the text style 
+/* 
+function onChangeTextInput({ currentTarget: { value }}) {
+    textOutputRef.textContent = !value
+        ? 'Anonymous'
+        : value;
+}
+*/
