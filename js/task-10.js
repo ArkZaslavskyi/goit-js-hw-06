@@ -66,7 +66,7 @@ function createBoxes(amount) {
   return boxes;
 }
 function destroyBoxes() {
-  boxesRef.innerHTML = '<div id="boxes"></div>';
+  boxesRef.innerHTML = '';
 }
 
 /*
