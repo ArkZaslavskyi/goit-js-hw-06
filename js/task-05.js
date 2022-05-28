@@ -21,10 +21,12 @@ textInputRef.addEventListener('input', onChangeTextInput);
 
 // text input handler
 // 1st solution - with change the text style
-function onChangeTextInput({ currentTarget: { value }}) {
+function onChangeTextInput({ currentTarget: { value } }) {
+    value = value.trim();
+    
     if (!value) {
         textOutputRef.textContent = 'Anonymous';
-        textOutputRef.classList.toggle('anonymous');
+        textOutputRef.classList.add('anonymous');
         return;
     };
     

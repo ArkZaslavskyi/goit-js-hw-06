@@ -19,7 +19,7 @@ function onBtnChangeColor() {
     getRandomHexColor()
     .toString()
     .toUpperCase();
-  bodyRef.style.backgroundColor = textColorRef.textContent;
+  bodyRef.setAttribute('style', `background-color: ${textColorRef.textContent};`);
 };
 
 // 
