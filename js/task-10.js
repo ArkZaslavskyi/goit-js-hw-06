@@ -21,47 +21,39 @@
 Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
 */
 
-/*
- * initialising References
- */
-const ref = {
+/** initialising References **/
+const refs = {
   boxes: document.querySelector('#boxes'),
   btnCreate: document.querySelector('#controls button[data-create]'),
   btnDestroy: document.querySelector('#controls button[data-destroy]'),
   numberOfBoxes: document.querySelector('#controls input[type="number"]'),
 };
 
-/*
- * Listeners
- */
-ref.btnCreate.addEventListener('click', event => onBtnCreateClk(event, ref));
-ref.btnDestroy.addEventListener('click', event => onBtnDestroyClk(event, ref));
+/** Listeners **/
+refs.btnCreate.addEventListener('click', event => onBtnCreateClk(event, refs));
+refs.btnDestroy.addEventListener('click', event => onBtnDestroyClk(event, refs));
 
-/*
- * callback functions
- */
-function onBtnCreateClk(event, {numberOfBoxes: { value }, boxes: boxesRef}) {
+/** callback functions **/
+function onBtnCreateClk (event, {numberOfBoxes: { value }, boxes: boxesRef}) {
   if (value) {
-    const boxesItems = createBoxes(value);
+    const boxesItems = createBoxes(value, refs);
     boxesRef.append(...boxesItems);
   };
 };
 
-function onBtnDestroyClk(event, {numberOfBoxes, boxes: boxesRef}) {
+function onBtnDestroyClk (event, {numberOfBoxes, boxes: boxesRef}) {
   destroyBoxes(boxesRef);
   numberOfBoxes.value = '';  
 }
 
-/*
- *
- */
-function createBoxes(amount) {
+/** Create & Destroy boxes functions **/
+function createBoxes (amount, {boxes: {children: {length: boxesLength}}}) {
   const boxes = [];
 
   for (let i = 0; i < amount; i += 1) {
     const elem = document.createElement('div');
 
-    elem.style.width = (30 + 10 * i) + 'px';
+    elem.style.width = (30 + 10 * (i + boxesLength)) + 'px';
     elem.style.height = elem.style.width;
     elem.style.backgroundColor = getRandomHexColor();
 
@@ -71,13 +63,11 @@ function createBoxes(amount) {
   return boxes;
 }
 
-function destroyBoxes(boxesRef) {
+function destroyBoxes (boxesRef) {
   boxesRef.innerHTML = '';
 }
 
-/*
- *
- */
+/**/
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
