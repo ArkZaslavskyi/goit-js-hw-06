@@ -24,31 +24,32 @@
 /*
  * initialising References
  */
-const boxesRef = document.querySelector('#boxes');
-const btnCreateRef = document.querySelector('#controls button[data-create]');
-const btnDestroyRef = document.querySelector('#controls button[data-destroy]');
-const numberOfBoxesRef = document.querySelector('#controls input[type="number"]');
+const ref = {
+  boxes: document.querySelector('#boxes'),
+  btnCreate: document.querySelector('#controls button[data-create]'),
+  btnDestroy: document.querySelector('#controls button[data-destroy]'),
+  numberOfBoxes: document.querySelector('#controls input[type="number"]'),
+};
 
 /*
  * Listeners
  */
-btnCreateRef.addEventListener('click', onbtnCreateClk);
-btnDestroyRef.addEventListener('click', onbtnDestroyClk);
+ref.btnCreate.addEventListener('click', event => onBtnCreateClk(event, ref));
+ref.btnDestroy.addEventListener('click', event => onBtnDestroyClk(event, ref));
 
 /*
  * callback functions
  */
-function onbtnCreateClk() {
-  if (numberOfBoxesRef.value) {
-    console.log(numberOfBoxesRef.value);
-    const boxes = createBoxes(numberOfBoxesRef.value);
-    console.log(boxes);
-    boxesRef.append(...boxes);
+function onBtnCreateClk(event, {numberOfBoxes: { value }, boxes: boxesRef}) {
+  if (value) {
+    const boxesItems = createBoxes(value);
+    boxesRef.append(...boxesItems);
   };
 };
 
-function onbtnDestroyClk() {
-  destroyBoxes();
+function onBtnDestroyClk(event, {numberOfBoxes, boxes: boxesRef}) {
+  destroyBoxes(boxesRef);
+  numberOfBoxes.value = '';  
 }
 
 /*
@@ -56,16 +57,21 @@ function onbtnDestroyClk() {
  */
 function createBoxes(amount) {
   const boxes = [];
-  for (let i = 1; i <= amount; i += 1) {
+
+  for (let i = 0; i < amount; i += 1) {
     const elem = document.createElement('div');
-    elem.style.width = (30 + 10 * (i - 1)) + 'px';
+
+    elem.style.width = (30 + 10 * i) + 'px';
     elem.style.height = elem.style.width;
     elem.style.backgroundColor = getRandomHexColor();
+
     boxes.push(elem);
   };
+
   return boxes;
 }
-function destroyBoxes() {
+
+function destroyBoxes(boxesRef) {
   boxesRef.innerHTML = '';
 }
 
