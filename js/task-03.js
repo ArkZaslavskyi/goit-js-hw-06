@@ -16,8 +16,8 @@ const images = [
 // gallery top node
 // <ul class="gallery"></ul>
 
-// markup of gallery item
-// <li class="gallery__item"><img class="gallery__img" src="" alt=""></li>
+// get reference on gallery
+const galleryRef = document.querySelector('.gallery');
 
 // make gallery item markup string function
 const makeGalleryItemMarkup = ({ url, alt }) =>
@@ -25,9 +25,6 @@ const makeGalleryItemMarkup = ({ url, alt }) =>
 
 // make all gallery items markup & join them to single html-string
 const galleryListItemsMarkup = images.map(makeGalleryItemMarkup).join('');
-
-// get reference on gallery
-const galleryRef = document.querySelector('.gallery');
 
 // add items to gallery
 galleryRef.insertAdjacentHTML('afterbegin', galleryListItemsMarkup);
