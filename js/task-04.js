@@ -1,29 +1,17 @@
-/*
- * initialising References
- */
+/** initialising References **/
 
-// reference on decrement button
 const btnDecrementRef = document.querySelector('#counter > [data-action="decrement"]');
-
-// reference on increment button
 const btnIncrementRef = document.querySelector('#counter > [data-action="increment"]');
-
-// reference on counter value
 const valueRef = document.querySelector('#value');
 
-/*
- * initialising starting values
- */
+/** initialising starting values **/
 
 // initialising Counter Value
 let counterValue = 0;
-
 // optional - change color of counter
-valueRef.classList.add('zeroNumber');
+valueRef.classList.add('number--zero');
 
-/*
- * add listeners on buttons
- */
+/** Add listeners on buttons **/
 
 // Listener of click on decrement button
 btnDecrementRef.addEventListener('click', () => {
@@ -31,7 +19,7 @@ btnDecrementRef.addEventListener('click', () => {
     valueRef.textContent = counterValue.toString();
 
     // optional - change color of counter
-    changeColorOfCounter();
+    changeColorOfCounter(counterValue, valueRef);
 });
 
 // Listener of click on increment button
@@ -40,31 +28,30 @@ btnIncrementRef.addEventListener('click', () => {
     valueRef.textContent = counterValue.toString();
 
     // optional - change color of counter
-    changeColorOfCounter();
+    changeColorOfCounter(counterValue, valueRef);
 });
 
-/*
- * optional part of code
- */
+
+/** optional part of code **/
 
 // change color of counter
-function changeColorOfCounter() {
-    if (counterValue < 0 && !valueRef.classList.contains('negativeNumber')) {
-        valueRef.classList.add('negativeNumber');
-        valueRef.classList.remove('zeroNumber');
+function changeColorOfCounter(value, ref) {
+    if (value < 0 && !ref.classList.contains('number--negative')) {
+        ref.classList.add('number--negative');
+        ref.classList.remove('number--zero');
         return;
     };
 
-    if (counterValue === 0) {
-        valueRef.classList.remove('negativeNumber');
-        valueRef.classList.remove('positiveNumber');
-        valueRef.classList.add('zeroNumber');
+    if (value === 0) {
+        ref.classList.remove('number--negative');
+        ref.classList.remove('number--positive');
+        ref.classList.add('number--zero');
         return;
     };
 
-    if (counterValue > 0 && !valueRef.classList.contains('positiveNumber')) {
-        valueRef.classList.add('positiveNumber');
-        valueRef.classList.remove('zeroNumber');
+    if (value > 0 && !ref.classList.contains('number--positive')) {
+        ref.classList.add('number--positive');
+        ref.classList.remove('number--zero');
         return;
     };
 };

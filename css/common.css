@@ -56,15 +56,15 @@ button {
   margin: 0 12px;
 }
 
-.negativeNumber {
+.number--negative {
   color: red;
 }
 
-.zeroNumber {
+.number--zero {
   color: gray;
 }
 
-.positiveNumber {
+.number--positive {
   color: rgb(69, 168, 23);
 }
 /* ---- */
